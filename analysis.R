@@ -19,8 +19,6 @@ FeaturesTest <- read.table("./test/X_test.txt", header = F)
 FeaturesTrain <- read.table("./train/X_train.txt", header = F)
 SubjectTest <- read.table("./test/subject_test.txt", header = F)
 SubjectTrain <- read.table("./train/subject_train.txt", header = F)
-
-
 ActivityLabels <- read.table("./activity_labels.txt", header = F)
 FeaturesNames <- read.table("./features.txt", header = F)
 FeaturesData <- rbind(FeaturesTest, FeaturesTrain)
@@ -30,17 +28,18 @@ ActivityData <- rbind(ActivityTest, ActivityTrain)
 
 names(ActivityData) <- "ActivityN"
 names(ActivityLabels) <- c("ActivityN", "Activity")
+
 Activity <- left_join(ActivityData, ActivityLabels, "ActivityN")[, 2]
+
 names(SubjectData) <- "Subject"
 names(FeaturesData) <- FeaturesNames$V2
-
-
 DataSet <- cbind(SubjectData, Activity)
 DataSet <- cbind(DataSet, FeaturesData)
 subFeaturesNames <- FeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", FeaturesNames$V2)]
+
+
 DataNames <- c("Subject", "Activity", as.character(subFeaturesNames))
 DataSet <- subset(DataSet, select=DataNames)
-
 names(DataSet)<-gsub("^t", "time", names(DataSet))
 names(DataSet)<-gsub("^f", "frequency", names(DataSet))
 names(DataSet)<-gsub("Acc", "Accelerometer", names(DataSet))
