@@ -50,3 +50,5 @@ names(DataSet)<-gsub("BodyBody", "Body", names(DataSet))
 SecondDataSet<-aggregate(. ~Subject + Activity, DataSet, mean)
 SecondDataSet<-SecondDataSet[order(SecondDataSet$Subject,SecondDataSet$Activity),]
 write.table(SecondDataSet, file = "data.txt",row.name=FALSE)
+
+
