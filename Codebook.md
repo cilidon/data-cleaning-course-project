@@ -37,7 +37,7 @@ The following files are available for the train and test data.
 
 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
 
-##Transformation Specifics- 5 functions/requirments and How Source Code run_analysis.R Meets Those Requirements 
+Transformation Specifics- 5 functions/requirments and How Source Code run_analysis.R Meets Those Requirements 
 
 1. Merges the training and the test sets to create one data set.
 Source code "run_analysis.R" loads both test and train data, processes them, and merges the results into one dataset.
@@ -52,6 +52,6 @@ Source code "run_analysis.R" loads the descriptive feature and activity labels.
 Source code "run_analysis.R" adds appropriately descriptive variable names to the large dataset columns (variables).
 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
-Source code "run_analysis.R" calculates the average for all measurement columns grouped by variables Activity and Subject and then writes the output to a local text file named "tidydata.txt""
+Source code "run_analysis.R" calculates the average for all measurement columns grouped by variables Activity and Subject and then writes the output to a local text file named "data.txt""
 
 
